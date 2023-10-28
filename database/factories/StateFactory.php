@@ -18,6 +18,7 @@ class StateFactory extends Factory
     {
         return [
             //
+            'country_id' => 1,
         ];
     }
 }

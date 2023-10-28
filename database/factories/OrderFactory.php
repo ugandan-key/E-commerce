@@ -18,6 +18,9 @@ class OrderFactory extends Factory
     {
         return [
             //
+            'order_date' => fake()->date(),
+            'delivery_id' => rand(1,3),
+            'customer_id' => rand(1,30)
         ];
     }
 }

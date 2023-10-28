@@ -53,4 +53,12 @@ class User extends Authenticatable
     public function customer(){
         return $this->hasOne(Customer::class);
     }
+
+    public function phone(){
+        return $this->MorphOne(Phone::class, 'phoneable'); #polimórfica 1 1
+    }
+
+    public function image(){
+        return $this->hasMany(Image::class, 'imageable');
+    }
 }

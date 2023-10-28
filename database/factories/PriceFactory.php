@@ -13,11 +13,14 @@ class PriceFactory extends Factory
      * Define the model's default state.
      *
      * @return array<string, mixed>
-     */
+     */    
     public function definition(): array
-    {
-        return [
+    {        
+        static $pid=0;
+        return [            
             //
+            'product_id' => ++$pid,
+            'price' => fake()->randomFloat(2,20,5000),
         ];
     }
 }

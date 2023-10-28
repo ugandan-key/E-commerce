@@ -17,6 +17,7 @@ class DeliveryFactory extends Factory
     public function definition(): array
     {
         return [
+            // 'status' => fake()->randomElement(['Enviado','Entregado','En espera']),
             //
         ];
     }

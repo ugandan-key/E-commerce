@@ -18,6 +18,7 @@ class PhoneFactory extends Factory
     {
         return [
             //
+            'phone_number' => fake()->phoneNumber(),
         ];
     }
 }

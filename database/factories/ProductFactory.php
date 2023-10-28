@@ -18,6 +18,11 @@ class ProductFactory extends Factory
     {
         return [
             //
+            'brand_id' => rand(1,10),
+            'category_id' => rand(1,10),
+            'seller_id' => rand(1,20),
+            'name' => fake()->word,
+            'description' => fake()->text,
         ];
     }
 }

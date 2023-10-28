@@ -18,6 +18,7 @@ class VersionFactory extends Factory
     {
         return [
             //
+            'name' => fake()->word,
         ];
     }
 }

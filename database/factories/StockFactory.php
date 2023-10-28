@@ -16,8 +16,11 @@ class StockFactory extends Factory
      */
     public function definition(): array
     {
+        static $sid=0;
         return [
             //
+            'product_id' => ++$sid,
+            'quantity_in_stock' => rand(0,500),
         ];
     }
 }

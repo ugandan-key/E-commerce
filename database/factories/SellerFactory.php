@@ -18,6 +18,9 @@ class SellerFactory extends Factory
     {
         return [
             //
+            'user_id' => rand(1,50),
+            'reputation' => fake()->text,
+            'description' => fake()->text,
         ];
     }
 }
