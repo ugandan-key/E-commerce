@@ -17,7 +17,6 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id'=> rand(1,50),
             'url' => fake()->imageUrl(1024,1024),
             //
         ];

@@ -19,6 +19,8 @@ use App\Models\Product;
 use App\Models\Price;
 use App\Models\Stock;
 use App\Models\Version;
+use App\Models\PaymentMethod;
+use App\Models\Payment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,6 +38,10 @@ class DatabaseSeeder extends Seeder
         
         \App\Models\Brand::factory(10)->create();
         \App\Models\Category::factory(10)->create();
+        \App\Models\PaymentMethod::factory()->create(['name'=>'Tarjeta de débito/credito',
+        'description'=>'Visa/Mastercard/AmericanExpress']);
+        \App\Models\PaymentMethod::factory()->create(['name'=>'Pago en efectivo en tienda',
+        'description'=>'Oxxo/Farmacia del Ahorro/Chedraui']);
         // \App\Models\Version::factory(20)->create();
 
         Country::factory()->create(['name'=>'Mexico']);
@@ -543,8 +549,12 @@ class DatabaseSeeder extends Seeder
         });
         \App\Models\Customer::factory(30)->create();
         \App\Models\Seller::factory(20)->create();
-        \App\Models\Product::factory(60)->has(Version::factory(rand(1,3)))->has(Order::factory(rand(1,100)))->create();
+        \App\Models\Product::factory(60)->has(Version::factory(rand(1,3)))->has(Order::factory())
+        ->create()->each(function ($product){
+            $product->image()->save(Image::factory()->make());
+        });
         \App\Models\Price::factory(60)->create();
         \App\Models\Stock::factory(60)->create();
+        \App\Models\Payment::factory(60)->create();
     }
 }
